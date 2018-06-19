@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContacts.View.ContactDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre" />
+                <Entry x:Name="NombreTxt" Placeholder="Ingrese Nombre" Text="{Binding CurrentContact.Nombre}"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Telefono" />
+                <Entry x:Name= "Telefono" Text="{Binding CurrentContact.Telefono}"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Direccion" />
+                <Entry x:Name= "Dirección" Text="{Binding CurrentContact.Direccion}"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Notas" />
+                <Editor x:Name= "NotasTxt" Text="{Binding CurrentContact.Notas}"></Editor>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name= "BtnGuardar" Text="Guardar" Command="{Binding SaveContactCommand}">
+                </Button>
+                <Button x:Name= "BtnEliminar" Text="Eliminar" Command="{Binding DeleteContactCommand}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
