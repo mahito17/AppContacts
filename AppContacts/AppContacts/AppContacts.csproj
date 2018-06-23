@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaivors\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="View\ContactDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
