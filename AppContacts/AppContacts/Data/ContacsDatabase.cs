@@ -14,12 +14,17 @@ namespace AppContacts.Data
     public class ContacsDatabase
     {
         private readonly SQLiteAsyncConnection database;
+        private object sorted;
 
+
+        //Aca se va a crear la tabla Contactos
         public ContacsDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Contact>().Wait();
         }
+
+        //Aca se obtiene la lista
 
         public async Task<List<Contact>> GetItemsAsync()
         {
@@ -47,6 +52,11 @@ namespace AppContacts.Data
             {
                 return database.InsertAsync(item);
             }
+        }
+
+        internal Task<ObservableCollection<Grouping<string, Contact>>> GetItemsGroupedAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<int> DeleteItemAsync(Contact item)
@@ -78,5 +88,5 @@ namespace AppContacts.Data
         }
     }
 
-    
+
 }

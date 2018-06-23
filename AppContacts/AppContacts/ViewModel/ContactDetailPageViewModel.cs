@@ -7,30 +7,38 @@ using Xamarin.Forms;
 
 namespace AppContacts.ViewModel
 {
-    public class ContentDetailPageViewModel
+    public class ContactDetailPageViewModel
     {
-        public Contact CurrentContacts { get; set; }
+        public Contact CurrentContact { get; set; }
         public Command SaveContactCommand { get; set; }
         public Command DeleteContactCommand { get; set; }
         public INavigation Navigation { get; set; }
 
-        public ContentDetailPageViewModel(INavigation navigation)
+        public ContactDetailPageViewModel(INavigation navigation, Contact contact = null)
         {
             this.Navigation = navigation;
-            this.CurrentContacts = new Contact();
+            if (contact == null)
+            {
+                this.CurrentContact = new Contact();
+            }
+            else
+            {
+                this.CurrentContact = contact;
+            }
+
             SaveContactCommand = new Command(async () => await SaveContact());
             DeleteContactCommand = new Command(async () => await DeleteContact());
         }
 
         private async Task SaveContact()
         {
-            await App.DataBase.SaveItemAsync(CurrentContacts);
+            await App.DataBase.SaveItemAsync(CurrentContact);
             await Navigation.PopToRootAsync();
         }
 
         private async Task DeleteContact()
         {
-            await App.DataBase.DeleteItemAsync(CurrentContacts);
+            await App.DataBase.DeleteItemAsync(CurrentContact);
             await Navigation.PopToRootAsync();
         }
     }

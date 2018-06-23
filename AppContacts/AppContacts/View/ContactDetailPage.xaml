@@ -10,11 +10,11 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Telefono" />
-                <Entry x:Name= "Telefono" Text="{Binding CurrentContact.Telefono}"></Entry>
+                <Entry x:Name= "Telefono" Placeholder="Ingrese Telefono " Text="{Binding CurrentContact.Telefono}"></Entry>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Direccion" />
-                <Entry x:Name= "Dirección" Text="{Binding CurrentContact.Direccion}"></Entry>
+                <Entry x:Name= "Dirección" Placeholder="Ingrese Telefono " Text="{Binding CurrentContact.Direccion}"></Entry>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Notas" />

@@ -13,7 +13,6 @@ namespace AppContacts
     public partial class App : Application
     {
         public static ContacsDatabase dataBase;
-
         public static ContacsDatabase DataBase
         {
             get
@@ -27,9 +26,14 @@ namespace AppContacts
                     catch (Exception ex)
                     {
                         Debug.WriteLine(ex.Message);
+                        throw;
                     }
                 }
                 return dataBase;
+            }
+            set
+            {
+                dataBase = value;
             }
         }
 
@@ -38,7 +42,7 @@ namespace AppContacts
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AppContacts.View.ContactsPage());
+            MainPage = new NavigationPage(new View.ContactsPage());
         }
 
         protected override void OnStart()
